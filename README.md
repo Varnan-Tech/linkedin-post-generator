@@ -1,5 +1,7 @@
 # linkedin-post-generator
 
+<img width="1376" height="768" alt="LinkedIn_post_generator" src="https://github.com/user-attachments/assets/dc71e06b-8b3c-486a-adbf-d56a7b22cdc1" />
+
 Generate LinkedIn posts from any content: blog posts, articles, GitHub PRs, or a description of what you built. The agent reads your source material, applies LinkedIn's content patterns, and produces a post with the right hook, story arc, and formatting.
 
 ## Post Styles
