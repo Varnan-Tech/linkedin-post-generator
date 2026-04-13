@@ -63,30 +63,69 @@ QA: State the core subject and the single most interesting or surprising thing a
 
 ---
 
-### Step 2: Choose Post Style
+### Step 2: Audience and Positioning
 
-Four styles. Auto-detect from content; respect any user override.
+Before writing a single word, define these four things from the source material:
 
-| Style | When to use | Signals |
-|-------|-------------|---------|
-| Founder/Ship | Personal story of building or shipping | "I shipped", "we launched", "after N months", PR merged |
-| Insight | Educational observation or pattern | Tutorial, how-to, lesson learned from experience |
-| Product Launch | Announcing something new to the market | New tool, beta, feature going GA |
-| Tutorial Summary | Distilling a dense technical post | Step-by-step guide, deep-dive, course content |
+1. **Audience:** Who specifically will read this post? ("senior engineers who manage CI/CD" not "developers")
+2. **Goal:** What should they do or think after reading? (Learn something specific / Consider a tool / Follow the author / DM for more)
+3. **Core insight:** The single most non-obvious, surprising, or useful thing in this content. One sentence.
+4. **Proof:** What evidence or specifics support the core insight? (numbers, before/after, named outcome)
 
-Decision logic:
-- First-person journey: Founder/Ship
-- Educational or observation-based: Insight
-- New-to-market announcement: Product Launch
-- Dense how-to being condensed: Tutorial Summary
+If any of these cannot be answered from the source material, ask the user for that specific item before proceeding.
 
-State the chosen style and your reasoning. If ambiguous, pick one and note it.
-
-QA: Does the chosen style fit the content type? Would a different style produce a stronger post?
+State all four before moving to Step 3. This shapes every decision that follows.
 
 ---
 
-### Step 3: Read Format Rules
+### Step 3: Choose Post Format
+
+Five formats. Match to the content type and the core insight from Step 2.
+
+| Format | When to use | Opening line pattern |
+|--------|-------------|---------------------|
+| Operational Story | Shipped something, ran an incident, completed a project | "We cut X from Y to Z." or "This week we shipped X." |
+| Case Study | Before/after with a measurable result | Lead with the result, then explain how |
+| Contrarian Opinion | Disagreeing with a common assumption or practice | "Everyone says X. Here's why that's wrong." |
+| Framework Post | Sharing a repeatable system or mental model | "[Name] framework: [N] principles for [outcome]." |
+| Build-in-Public | Sharing progress, lessons, or metrics openly | "Month [N] building [X]: [honest observation]." |
+
+**Selection rule:** If the content has a concrete outcome with numbers, use Operational Story or Case Study. If it's a strong opinion, use Contrarian. If it's a reusable system, use Framework. If it's a progress update, use Build-in-Public.
+
+State the chosen format and one-sentence reason.
+
+---
+
+### Step 4: Select Hook Formula
+
+The hook is the first line. It must work as a standalone sentence before "see more" cuts off. It must not start with "I".
+
+Five hook formulas. Pick the one that best fits the core insight and audience:
+
+**1. Contrarian:** Challenge an assumption the audience holds.
+> "Everyone says [X]. They're wrong."
+> "The conventional wisdom on [X] is backwards."
+
+**2. Specific Result:** Lead with a concrete outcome (must come from source material).
+> "We reduced [metric] from [before] to [after] in [timeframe]."
+> "[N] engineers. [X] hours saved per week. Here's what changed."
+
+**3. Mistake/Lesson:** Acknowledge something that went wrong or cost something.
+> "I made a [consequence] mistake. Here's what I'd do differently."
+> "We did [X] for [N] months before realizing it was the wrong approach."
+
+**4. Framework Reveal:** Name a system or principle.
+> "The [N]-part system we use to [outcome]."
+> "Three rules that changed how our team approaches [X]."
+
+**5. Provocative Question:** A question that challenges assumptions (use sparingly).
+> "Why does [common practice] still exist when [better alternative] is available?"
+
+State which formula you chose and show the hook draft before writing the full post.
+
+---
+
+### Step 5: Read Format Rules
 
 Read `references/linkedin-format.md` in full. Internalize before writing:
 - Hook rules (no starting with "I", no generic openers, must work standalone before the "see more" cutoff)
@@ -100,28 +139,37 @@ Then read `references/output-template.md` and select the template for the chosen
 
 ---
 
-### Step 4: Generate the Post
+### Step 6: Generate the Post
 
-Produce three outputs:
+Produce **six outputs** in this order:
 
-(A) The LinkedIn post using the template for the chosen style:
-- Hook that works as a standalone sentence and does not start with "I"
+**(A) Three hook variants**: different formulas, same core insight:
+- Hook 1: [chosen formula from Step 4]
+- Hook 2: [different formula]
+- Hook 3: [third formula: the boldest/most provocative version]
+
+Label each with its formula type and character count.
+
+**(B) Full post using Hook 1:**
+- Opens with Hook 1
 - Blank line between every paragraph block (1-3 lines each)
-- Story arc matching the style (setup, action/learning, takeaway)
-- Ends with a question OR a CTA, not both
-- No URLs anywhere in the post body
-- Apply the Writing Style rules above to every sentence
+- Story arc matching the format chosen in Step 3
+- Ends with question OR CTA, not both
+- No URLs in the post body
+- All Writing Style rules applied
 
-(B) The first comment: prepare this text for the user to post immediately after publishing:
-- Source URL (if one was provided)
-- Any other links referenced in the post body
-- Format: "[One context sentence]. [URL]"
+**(C) Spicier variant**: same post with a more direct, opinionated, or blunt tone. One or two sentences strengthened. Not longer: just sharper. Label what changed and why.
 
-(C) Two alternative hooks: generate the primary post with the best hook, then offer two different hook formats. If the primary uses a stat, offer a contrarian take and a story-opening alternative.
+**(D) Three first-comment ideas:**
+- Comment 1: Source URL + one context sentence
+- Comment 2: A follow-up question to drive discussion ("The part I'm still figuring out: [X]. How do you approach it?")
+- Comment 3: A related resource or deeper context (only if source material supports it)
+
+Label each comment with its purpose. User picks one to post immediately after publishing.
 
 ---
 
-### Step 5: Self-QA
+### Step 7: Self-QA
 
 Before presenting the output, run every item on this checklist and fix any violation:
 
@@ -142,7 +190,7 @@ Fix before presenting. State the character count in your output.
 
 ---
 
-### Step 6: Post via Composio or Output to User
+### Step 8: Post via Composio or Output to User
 
 Check for `COMPOSIO_API_KEY` in the environment.
 
